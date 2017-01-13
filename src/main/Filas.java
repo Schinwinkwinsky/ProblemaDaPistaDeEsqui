@@ -11,7 +11,7 @@ import java.util.Queue;
 
 /**
  *
- * @author Cleiton
+ * @author Schinwinkwinsky
  */
 public class Filas {
     private Queue<Esquiador> leftSingle;

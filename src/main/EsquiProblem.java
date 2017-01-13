@@ -11,23 +11,27 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Cleiton
+ * @author Schinwinkwinsky
  */
 public class EsquiProblem {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) {        
         
         Filas filas = new Filas();
         
         new Thread(new Elevador(filas)).start();
         
+        Random gerador = new Random();
+        
         while(true){
             try {
-                Random gerador = new Random();
-                
+                //Cria um novo esquiador.
                 new Thread(new Esquiador(filas)).start();
+                
+                //Aguarda um intervalo entre ]0, 1]s para criar
+                //um novo esquiador.
                 Thread.sleep(gerador.nextInt(1000) + 1);
             } catch (InterruptedException ex) {
                 Logger.getLogger(EsquiProblem.class.getName()).log(Level.SEVERE, null, ex);
